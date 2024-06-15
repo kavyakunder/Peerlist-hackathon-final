@@ -3,12 +3,6 @@
   color: var(--color-light-gray);
 }
 
-.appName {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 .app {
   height: 100%;
   background-color: var(--color-dark-blue);
@@ -38,13 +32,14 @@
 }
 
 .startButton {
+  margin-top: 20px;
   padding: 10px 50px;
   width: max-content;
   outline: none;
   border: none;
   border-radius: 5px;
   background-color: var(--color-teal);
-  color: var(--color-white);
+  color: var(--color-dark-blue);
   font: var(--font-bold-small);
   text-transform: uppercase;
   cursor: pointer;

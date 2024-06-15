@@ -9,7 +9,7 @@ export default function LandingPage() {
             Ace Your Interviews with AI Precision
           </h1>
           <p className={`${landingPageStyles.description}`}>
-            QnAce is your AI-powered interview coach. Experience realistic mock
+            Q&Ace is your AI-powered interview coach. Experience realistic mock
             interviews, get personalized feedback, and master every question.
           </p>
           <button className={`${landingPageStyles.startButton}`}>Start</button>
