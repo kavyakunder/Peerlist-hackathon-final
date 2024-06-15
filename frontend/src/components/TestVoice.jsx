@@ -17,6 +17,8 @@ export default function TestVoice() {
     });
   };
 
+  console.log("hi");
+
   const {
     transcript,
     listening,
