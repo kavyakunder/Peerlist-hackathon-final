@@ -2,15 +2,24 @@ import React, { useState } from "react";
 import topicPageStyles from "../styles/topicPage.module.css";
 import axios from "axios";
 
-const ALL_LEVELS = ["Easy", "Medium", "Hard"];
-const ALL_TOPICS = ["React", "Javascript", "CSS"];
+const ALL_LEVELS = [
+  { id: 1, name: "Easy" },
+  { id: 2, name: "Medium" },
+  { id: 3, name: "Hard" },
+];
+
+const ALL_TOPICS = [
+  { id: 1, name: "React" },
+  { id: 2, name: "Javascript" },
+  { id: 3, name: "CSS" },
+];
 
 function SelectTopicPage() {
-  const [topic, setTopic] = useState("React");
-  const [difficulty, setDifficulty] = useState("Easy");
+  const [topic, setTopic] = useState({ id: 1, name: "React" });
+  const [difficulty, setDifficulty] = useState({ id: 1, name: "Easy" });
 
   function handleDifficulty(level) {
-    setDifficulty(level.toLowerCase());
+    setDifficulty(level);
   }
 
   function handleTopic(topic) {
@@ -18,7 +27,10 @@ function SelectTopicPage() {
   }
 
   async function sendCategoryToBackend() {
-    const data = { topic, difficulty };
+    const data = {
+      topic: topic.name,
+      difficulty: difficulty.name.toLowerCase(),
+    };
 
     try {
       const response = await axios.post("http://localhost:5000/api/category", {
@@ -41,13 +53,15 @@ function SelectTopicPage() {
           <div className={topicPageStyles.categoryBtnContainer}>
             {ALL_TOPICS.map((topicName) => (
               <button
-                key={topicName}
+                key={topicName.id}
                 className={`${topicPageStyles.categoryBtn} ${
-                  topicName === topic ? topicPageStyles.selectedOption : ""
+                  topicName.name === topic.name
+                    ? topicPageStyles.selectedOption
+                    : ""
                 }`}
                 onClick={() => handleTopic(topicName)}
               >
-                {topicName}
+                {topicName.name}
               </button>
             ))}
           </div>
@@ -59,15 +73,15 @@ function SelectTopicPage() {
             {ALL_LEVELS.map((level) => {
               return (
                 <button
-                  key={level}
+                  key={level.id}
                   className={`${topicPageStyles.categoryBtn} ${
-                    level.toLowerCase() === difficulty.toLowerCase()
+                    level.name.toLowerCase() === difficulty.name.toLowerCase()
                       ? topicPageStyles.selectedOption
                       : ""
                   }`}
-                  onClick={() => handleDifficulty(level.toLowerCase())}
+                  onClick={() => handleDifficulty(level)}
                 >
-                  {level}
+                  {level.name}
                 </button>
               );
             })}
