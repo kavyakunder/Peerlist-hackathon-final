@@ -15,6 +15,8 @@ function App() {
     });
   };
 
+  console.log("hi");
+
   const {
     transcript,
     listening,
