@@ -1,0 +1,40 @@
+.interviewLayout {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: calc(100vh - 100px);
+}
+
+.redBorder {
+  border: 1px solid red;
+}
+
+.interviewLHS {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.interviewRHS {
+  flex: 3;
+}
+
+.interviewerSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intervieweeSection {
+  flex: 1.2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.interviewerProfile {
+  height: 80%;
+  max-height: 40vh;
+  border-radius: 50%;
+}

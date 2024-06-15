@@ -5,7 +5,9 @@ export default function RootLayout() {
   return (
     <>
       <Header />
-      <Outlet />
+      <div style={{ paddingTop: "90px" }}>
+        <Outlet />
+      </div>
     </>
   );
 }
