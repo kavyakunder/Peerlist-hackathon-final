@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { path: "/", element: <LandingPage /> },
-      { path: "/selectTopic", element: <SelectTopicPage /> }, //TODO: check case
+      { path: "/category", element: <SelectTopicPage /> }, //TODO: check case
       { path: "/interview", element: <InterviewPage /> },
     ],
   },
