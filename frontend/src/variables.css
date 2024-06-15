@@ -7,8 +7,11 @@
 
   --color-dark-blue: #141427;
   --color-teal: #00adb5;
+  --color-space-blue: #313153;
+
   --color-light-gray: #eeeeee;
   --color-medium-gray: #bfbfbf;
+  --color-dark-gray: #818181;
 
   /* fonts */
   --font-h1: 700 70px "Roboto";
@@ -16,6 +19,9 @@
   --font-bold-small: 500 24px "Roboto";
   --font-p: 300 25px "Roboto";
   --font-thin-small: 300 16px "Roboto";
+  --font-size-big: 3rem;
+  --font-size-medium: 2rem;
+  --font-size-small: 1rem;
 }
 
 /* padding */
