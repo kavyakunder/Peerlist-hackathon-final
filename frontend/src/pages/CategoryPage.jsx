@@ -2,6 +2,7 @@ import { useState } from "react";
 import categoryPageStyles from "../styles/categoryPage.module.css";
 import axios from "axios";
 import { ALL_LEVELS, ALL_TOPICS } from "../constants/categories";
+import { Link } from "react-router-dom";
 
 function CategoryPage() {
   const [topic, setTopic] = useState(ALL_TOPICS[0]);
@@ -78,12 +79,14 @@ function CategoryPage() {
         </div>
       </div>
       <div className={categoryPageStyles.startInterviewBtnContainer}>
-        <button
-          className={categoryPageStyles.startInterviewButton}
-          onClick={sendCategoryToBackend}
-        >
-          Begin Interview
-        </button>
+        <Link to="/interview">
+          <button
+            className={categoryPageStyles.startInterviewButton}
+            onClick={sendCategoryToBackend}
+          >
+            Begin Interview
+          </button>
+        </Link>
       </div>
     </div>
   );
