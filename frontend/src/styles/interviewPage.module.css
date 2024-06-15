@@ -3,7 +3,7 @@
   gap: 20px;
   width: 100%;
   height: calc(100vh - 90px);
-  padding: 20px;
+  padding: var(--padding-medium);
 }
 
 .sectionBackground {
@@ -31,7 +31,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  padding: 20px;
+  padding: var(--padding-medium);
 }
 
 .intervieweeSection {
@@ -42,7 +42,7 @@
   flex-direction: column;
   gap: 20px;
   position: relative;
-  padding: 20px;
+  padding: var(--padding-medium);
 }
 
 .interviewerProfile {
@@ -63,7 +63,7 @@
 }
 
 .intervieweeControlButton {
-  padding: 10px 30px;
+  padding: var(--padding-small) var(--padding-large);
   width: max-content;
   outline: none;
   border: none;
@@ -75,7 +75,7 @@
 }
 
 .intervieweeControlButtonInactive {
-  padding: 10px 30px;
+  padding: var(--padding-small) var(--padding-large);
   width: max-content;
   outline: none;
   border: none;
@@ -108,7 +108,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   position: relative;
-  padding: 20px;
+  padding: var(--padding-medium);
 }
 
 .answerSection {
