@@ -7,17 +7,6 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-let questionCount = 0;
-const maxQuestions = 3;
-
-// const maxQuestions = 3;
-// let initialMessages = [
-//   {
-//     role: "system",
-//     content: `You are an interviewer who should ask only 3 easy questions one by one that has one word answer to Kavya related to React`,
-//   },
-// ];
-
 let initialMessages = [
   {
     role: "system",
@@ -26,14 +15,6 @@ let initialMessages = [
   },
 ];
 
-// function getMsg(basic,months)
-// {
-//   return {
-//     role: "system",
-//     content:
-//       "You are an interviewer who should ask only 3 basic questions one by one that has one word answer to Kavya related to months.",
-//   },
-// }
 let messages = [...initialMessages];
 
 router.post("/chat2", async (req, res) => {
@@ -57,7 +38,6 @@ router.post("/chat2", async (req, res) => {
 router.post("/chat", async (req, res) => {
   try {
     const userResponse = req.body.transcript;
-    console.log("the user response is", userResponse);
     messages.push({ role: "user", content: userResponse });
 
     const chatCompletion = await groq.chat.completions.create({
@@ -77,7 +57,6 @@ router.post("/chat", async (req, res) => {
     }
 
     messages.push({ role: "assistant", content: response });
-    console.log("Res", response);
     res.json({ role: "assistant", content: response });
 
     console.log("Message is", messages);

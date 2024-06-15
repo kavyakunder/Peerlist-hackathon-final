@@ -20,7 +20,7 @@ function SelectTopicPage() {
         data,
       });
 
-      console.log("respons eisssss", response);
+      console.log("response is", response);
     } catch (error) {
       console.error("Error during conversation:", error);
     }

@@ -6,7 +6,6 @@ import SpeechRecognition, {
 
 export default function InterviewPage() {
   const [aiResponse, setAiResponse] = useState("");
-  const [questionCount, setQuestionCount] = useState(0);
 
   const handleStartListening = () => {
     SpeechRecognition.startListening({
@@ -44,7 +43,6 @@ export default function InterviewPage() {
       });
       setAiResponse(response.data.content);
       speak(response.data.content);
-      setQuestionCount(questionCount + 1);
       resetTranscript();
     } catch (error) {
       console.error("Error during conversation:", error);
