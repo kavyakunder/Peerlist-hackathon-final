@@ -5,7 +5,7 @@ import qnAceInterviewee from "../assets/qnAceInterviewee.png";
 export default function InterviewPage() {
   return (
     <div className={interviewStyles.interviewLayout}>
-      <div className={`${interviewStyles.interviewLHS}`}>
+      <div className={interviewStyles.interviewLHS}>
         <div
           className={`${interviewStyles.sectionBackground} ${interviewStyles.interviewerSection}`}
         >
@@ -37,7 +37,7 @@ export default function InterviewPage() {
           </div>
         </div>
       </div>
-      <div className={`${interviewStyles.interviewRHS}`}>
+      <div className={interviewStyles.interviewRHS}>
         <div
           className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection}`}
         >
