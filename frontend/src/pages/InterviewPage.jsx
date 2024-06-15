@@ -1,64 +1,73 @@
-import { useState } from "react";
-import axios from "axios";
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from "react-speech-recognition";
+import interviewStyles from "../styles/interviewPage.module.css";
+import qnAceInterviewer from "../assets/qnAceInterviewer.jpg";
+import qnAceInterviewee from "../assets/qnAceInterviewee.png";
 
 export default function InterviewPage() {
-  const [aiResponse, setAiResponse] = useState("");
-
-  const handleStartListening = () => {
-    SpeechRecognition.startListening({
-      continuous: true,
-      language: "en-IN",
-      interimResults: true,
-    });
-  };
-
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    browserSupportsSpeechRecognition,
-  } = useSpeechRecognition();
-
-  if (!browserSupportsSpeechRecognition) {
-    return <span>Browser doesn't support speech recognition</span>;
-  }
-
-  function speak(aiResponse) {
-    const utterance = new SpeechSynthesisUtterance(aiResponse);
-
-    const voices = speechSynthesis.getVoices();
-    utterance.voice = voices[1];
-    utterance.lang = "en-IN";
-    speechSynthesis.speak(utterance);
-  }
-  const handleStopListening = async () => {
-    SpeechRecognition.stopListening();
-
-    try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
-        transcript,
-      });
-      setAiResponse(response.data.content);
-      speak(response.data.content);
-      resetTranscript();
-    } catch (error) {
-      console.error("Error during conversation:", error);
-    }
-  };
-
   return (
-    <div style={{ margin: "9rem" }}>
-      <p>Microphone: {listening ? "on" : "off"}</p>
-      <button onClick={handleStartListening}>Start</button>
-
-      <button onClick={handleStopListening}>Stop</button>
-
-      <p>User: {transcript}</p>
-
-      <p>AI Response: {aiResponse}</p>
+    <div className={interviewStyles.interviewLayout}>
+      <div className={interviewStyles.interviewLHS}>
+        <div
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.interviewerSection}`}
+        >
+          <p className={interviewStyles.sectionTitle}>Interviewer</p>
+          <img
+            src={qnAceInterviewer}
+            alt="AI Interviewer"
+            className={interviewStyles.interviewerProfile}
+          />
+        </div>
+        <div
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.intervieweeSection}`}
+        >
+          <p className={interviewStyles.sectionTitle}>You</p>
+          <img
+            src={qnAceInterviewee}
+            alt="AI Interviewee"
+            className={interviewStyles.intervieweeProfile}
+          />
+          <div className={interviewStyles.intervieweeControlButtonGroup}>
+            <button className={interviewStyles.intervieweeControlButton}>
+              Start recording
+            </button>
+            <button
+              className={interviewStyles.intervieweeControlButtonInactive}
+            >
+              Stop recording
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className={interviewStyles.interviewRHS}>
+        <div
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection}`}
+        >
+          <p className={interviewStyles.sectionTitle}>Question</p>
+          <p className={interviewStyles.sectionContent}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+            delectus cum quis exercitationem, earum unde vero a facilis pariatur
+            inventore molestias nostrum consectetur dicta sit magni possimus
+            amet minima quod!
+          </p>
+        </div>
+        <div
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection} ${interviewStyles.answerSection}`}
+        >
+          <p className={interviewStyles.sectionTitle}>Answer</p>
+          <p className={interviewStyles.sectionContent}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+            delectus cum quis exercitationem, earum unde vero a facilis pariatur
+            inventore molestias nostrum consectetur dicta sit magni possimus
+            amet minima quod! Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Asperiores delectus cum quis exercitationem, earum
+            unde vero a facilis pariatur inventore molestias nostrum consectetur
+            dicta sit magni possimus amet minima quod! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Asperiores delectus cum quis
+            exercitationem, earum unde vero a facilis pariatur inventore
+            molestias nostrum consectetur dicta sit magni possimus amet minima
+            quod!
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
