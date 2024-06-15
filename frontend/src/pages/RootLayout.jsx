@@ -5,7 +5,12 @@ export default function RootLayout() {
   return (
     <>
       <Header />
-      <div style={{ paddingTop: "90px" }}>
+      <div
+        style={{
+          paddingTop: "90px",
+          backgroundColor: "var(--color-dark-blue)",
+        }}
+      >
         <Outlet />
       </div>
     </>

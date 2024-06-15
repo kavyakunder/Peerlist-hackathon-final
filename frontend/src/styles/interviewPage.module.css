@@ -2,11 +2,11 @@
   display: flex;
   gap: 20px;
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 90px);
 }
 
 .redBorder {
-  border: 1px solid red;
+  border: 1px solid var(--color-dark-gray);
 }
 
 .interviewLHS {
@@ -24,17 +24,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .intervieweeSection {
-  flex: 1.2;
+  flex: 1.5;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
 }
 
 .interviewerProfile {
-  height: 80%;
-  max-height: 40vh;
+  max-height: 30vh;
   border-radius: 50%;
+}
+
+.intervieweeProfile {
+  max-height: 30vh;
+  border-radius: 50%;
+}
+
+.intervieweeControlButtonGroup {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.intervieweeControlButton {
+  padding: 10px 30px;
+  width: max-content;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-teal);
+  color: var(--color-dark-blue);
+  font: var(--font-bold-small);
+  cursor: pointer;
+}
+
+.intervieweeControlButtonInactive {
+  padding: 10px 30px;
+  width: max-content;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-dark-blue);
+  font: var(--font-bold-small);
+  cursor: pointer;
+}
+
+.intervieweeControlButtonInactive:hover {
+  background-color: var(--color-light-gray);
+}
+
+.sectionTitle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }

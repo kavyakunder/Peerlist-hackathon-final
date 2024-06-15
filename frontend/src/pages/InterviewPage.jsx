@@ -11,6 +11,7 @@ export default function InterviewPage() {
         <div
           className={`${interviewStyles.redBorder} ${interviewStyles.interviewerSection}`}
         >
+          <p className={interviewStyles.sectionTitle}>Interviewer</p>
           <img
             src={qnAceInterviewer}
             alt="AI Interviewer"
@@ -20,11 +21,22 @@ export default function InterviewPage() {
         <div
           className={`${interviewStyles.redBorder} ${interviewStyles.intervieweeSection}`}
         >
+          <p className={interviewStyles.sectionTitle}>You</p>
           <img
             src={qnAceInterviewee}
             alt="AI Interviewee"
-            className={interviewStyles.interviewerProfile}
+            className={interviewStyles.intervieweeProfile}
           />
+          <div className={interviewStyles.intervieweeControlButtonGroup}>
+            <button className={interviewStyles.intervieweeControlButton}>
+              Start recording
+            </button>
+            <button
+              className={interviewStyles.intervieweeControlButtonInactive}
+            >
+              Stop recording
+            </button>
+          </div>
         </div>
       </div>
       <div
