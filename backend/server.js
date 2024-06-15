@@ -8,16 +8,50 @@ const groq = new Groq({
 let questionCount = 0;
 const maxQuestions = 3;
 
-const initialMessages = [
+// const maxQuestions = 3;
+// let initialMessages = [
+//   {
+//     role: "system",
+//     content: `You are an interviewer who should ask only 3 easy questions one by one that has one word answer to Kavya related to React`,
+//   },
+// ];
+
+let initialMessages = [
   {
     role: "system",
     content:
-      "You are an interviewer who should ask only 3 basic questions one by one that has one word answer to Kavya related to months.",
+      "You are an interviewer who should ask only 3 basic questions one by one that has one word answer to Kavya related to React.",
   },
 ];
 
+// function getMsg(basic,months)
+// {
+//   return {
+//     role: "system",
+//     content:
+//       "You are an interviewer who should ask only 3 basic questions one by one that has one word answer to Kavya related to months.",
+//   },
+// }
 let messages = [...initialMessages];
 
+router.post("/chat2", async (req, res) => {
+  try {
+    const { topic, difficulty } = req.body.data;
+
+    messages.pop();
+    initialMessages = [
+      {
+        role: "system",
+        content: `You are an interviewer who should ask only 3 ${difficulty} questions one by one that has one word answer to Kavya related to ${topic}.`,
+      },
+    ];
+
+    messages = [...initialMessages];
+    console.log("this is rhee", topic, difficulty);
+  } catch (err) {
+    console.log("Err", err);
+  }
+});
 router.post("/chat", async (req, res) => {
   try {
     const userResponse = req.body.transcript;

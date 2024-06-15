@@ -1,9 +1,13 @@
+import SecondPage from "./components/SecondPage";
+import TestVoice from "./components/TestVoice";
 import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <div>
-      <LandingPage />
+      {/* <LandingPage /> */}
+      <SecondPage />
+      <TestVoice />
     </div>
   );
 }
