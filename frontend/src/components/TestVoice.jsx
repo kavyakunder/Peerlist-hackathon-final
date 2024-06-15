@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 
-function App() {
+// ---------------- Demo Voice recording -----------------------
+
+export default function TestVoice() {
   const [aiResponse, setAiResponse] = useState("");
   const [questionCount, setQuestionCount] = useState(0);
   const startListening = () => {
@@ -85,5 +87,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
