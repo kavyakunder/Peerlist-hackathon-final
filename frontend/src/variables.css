@@ -25,8 +25,12 @@
   --padding-medium: 20px;
   --padding-large: 30px;
   --padding-x-large: 50px;
+
+  /* gap */
+  --gap-x-small: 5px;
+  --gap-small: 16px;
+  --gap-medium: 20px;
+  --gap-large: 30px;
 }
 
 /* margin */
-
-/* spacing */
