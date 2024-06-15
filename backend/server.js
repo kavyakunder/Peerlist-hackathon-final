@@ -1,27 +1,43 @@
 const express = require("express");
 const router = express.Router();
 const Groq = require("groq-sdk");
+require("dotenv").config();
+
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.GROQ_API_KEY,
 });
 
-let questionCount = 0;
-const maxQuestions = 3;
-
-const initialMessages = [
+let initialMessages = [
   {
     role: "system",
     content:
-      "You are an interviewer who should ask only 3 basic questions one by one that has one word answer to Kavya related to months.",
+      "You are an interviewer who should ask only 3 basic questions one by one that has one word answer to Kavya related to React.",
   },
 ];
 
 let messages = [...initialMessages];
 
+router.post("/category", async (req, res) => {
+  try {
+    const { topic, difficulty } = req.body.data;
+
+    messages.pop();
+    initialMessages = [
+      {
+        role: "system",
+        content: `You are an interviewer who should ask only 3 ${difficulty} questions one by one that has one word answer to Kavya related to ${topic}.`,
+      },
+    ];
+
+    messages = [...initialMessages];
+    console.log("this is rhee", topic, difficulty);
+  } catch (err) {
+    console.log("Err", err);
+  }
+});
 router.post("/chat", async (req, res) => {
   try {
     const userResponse = req.body.transcript;
-    console.log("the user response is", userResponse);
     messages.push({ role: "user", content: userResponse });
 
     const chatCompletion = await groq.chat.completions.create({
@@ -41,7 +57,6 @@ router.post("/chat", async (req, res) => {
     }
 
     messages.push({ role: "assistant", content: response });
-    console.log("Res", response);
     res.json({ role: "assistant", content: response });
 
     console.log("Message is", messages);
