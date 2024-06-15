@@ -3,7 +3,7 @@ import landingPageStyles from "../styles/landingPage.module.css";
 export default function LandingPage() {
   return (
     <main className={`${landingPageStyles.app}`}>
-      <div className={`${landingPageStyles.container}`}>
+      <section className={`${landingPageStyles.container}`}>
         <div className={`${landingPageStyles.content}`}>
           <h1 className={`${landingPageStyles.heroText}`}>
             Ace Your Interviews with AI Precision
@@ -14,7 +14,36 @@ export default function LandingPage() {
           </p>
           <button className={`${landingPageStyles.startButton}`}>Start</button>
         </div>
-      </div>
+      </section>
+
+      <section
+        className={`${landingPageStyles.bulletPointsSection} ${landingPageStyles.container}`}
+      >
+        <div>
+          <h4>AI-Powered Interview Simulation</h4>
+          <p>
+            Experience realistic mock interviews powered by advanced AI
+            algorithms. Practice answering a wide range of interview questions
+            tailored to various industries and roles.
+          </p>
+        </div>
+        <div>
+          <h4>title</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            repellat nihil enim quaerat magni doloribus, facere temporibus
+            praesentium
+          </p>
+        </div>
+        <div>
+          <h4>title</h4>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis
+            repellat nihil enim quaerat magni doloribus, facere temporibus
+            praesentium
+          </p>
+        </div>
+      </section>
     </main>
   );
 }
