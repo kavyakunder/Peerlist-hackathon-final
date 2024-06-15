@@ -3,13 +3,12 @@ const app = express();
 const chatRoute = require("./server.js");
 const cors = require("cors");
 
-app.use(
-  cors({
-    origin: "http://localhost:3000", // Add this block
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+const corsOptions = {
+  origin: "http://localhost:3000",
+  credentials: true, //access-control-allow-credentials:true
+  optionSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api", chatRoute);
