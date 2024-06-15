@@ -15,9 +15,7 @@ export default function LandingPage() {
             interviews, get personalized feedback, and master every question.
           </p>
           <Link to="/category">
-            <button className={landingPageStyles.startButton}>
-              Start
-            </button>
+            <button className={landingPageStyles.startButton}>Start</button>
           </Link>
         </div>
       </section>

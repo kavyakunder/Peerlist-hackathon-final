@@ -1,11 +1,15 @@
 .appHeader {
+  text-decoration: none;
+  display: flex;
+  gap: var(--gap-x-small);
+}
+
+.appHeaderBar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  display: flex;
   padding: var(--padding-small);
-  gap: var(--gap-x-small);
   background: rgba(20, 20, 39, 0.5);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
