@@ -5,11 +5,9 @@ import qnAceInterviewee from "../assets/qnAceInterviewee.png";
 export default function InterviewPage() {
   return (
     <div className={interviewStyles.interviewLayout}>
-      <div
-        className={`${interviewStyles.interviewLHS} ${interviewStyles.redBorder}`}
-      >
+      <div className={`${interviewStyles.interviewLHS}`}>
         <div
-          className={`${interviewStyles.redBorder} ${interviewStyles.interviewerSection}`}
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.interviewerSection}`}
         >
           <p className={interviewStyles.sectionTitle}>Interviewer</p>
           <img
@@ -19,7 +17,7 @@ export default function InterviewPage() {
           />
         </div>
         <div
-          className={`${interviewStyles.redBorder} ${interviewStyles.intervieweeSection}`}
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.intervieweeSection}`}
         >
           <p className={interviewStyles.sectionTitle}>You</p>
           <img
@@ -39,10 +37,36 @@ export default function InterviewPage() {
           </div>
         </div>
       </div>
-      <div
-        className={`${interviewStyles.interviewRHS} ${interviewStyles.redBorder}`}
-      >
-        RHS
+      <div className={`${interviewStyles.interviewRHS}`}>
+        <div
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection}`}
+        >
+          <p className={interviewStyles.sectionTitle}>Question</p>
+          <p className={interviewStyles.sectionContent}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+            delectus cum quis exercitationem, earum unde vero a facilis pariatur
+            inventore molestias nostrum consectetur dicta sit magni possimus
+            amet minima quod!
+          </p>
+        </div>
+        <div
+          className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection} ${interviewStyles.answerSection}`}
+        >
+          <p className={interviewStyles.sectionTitle}>Answer</p>
+          <p className={interviewStyles.sectionContent}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
+            delectus cum quis exercitationem, earum unde vero a facilis pariatur
+            inventore molestias nostrum consectetur dicta sit magni possimus
+            amet minima quod! Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Asperiores delectus cum quis exercitationem, earum
+            unde vero a facilis pariatur inventore molestias nostrum consectetur
+            dicta sit magni possimus amet minima quod! Lorem ipsum dolor sit
+            amet, consectetur adipisicing elit. Asperiores delectus cum quis
+            exercitationem, earum unde vero a facilis pariatur inventore
+            molestias nostrum consectetur dicta sit magni possimus amet minima
+            quod!
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -3,20 +3,26 @@
   gap: 20px;
   width: 100%;
   height: calc(100vh - 90px);
+  padding: 20px;
 }
 
-.redBorder {
-  border: 1px solid var(--color-dark-gray);
+.sectionBackground {
+  border-radius: 5px;
+  background: var(--color-medium-blue);
 }
 
 .interviewLHS {
   flex: 2;
   display: flex;
   flex-direction: column;
+  gap: 20px;
 }
 
 .interviewRHS {
   flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .interviewerSection {
@@ -25,6 +31,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  padding: 20px;
 }
 
 .intervieweeSection {
@@ -35,6 +42,7 @@
   flex-direction: column;
   gap: 20px;
   position: relative;
+  padding: 20px;
 }
 
 .interviewerProfile {
@@ -62,7 +70,7 @@
   border-radius: 5px;
   background-color: var(--color-teal);
   color: var(--color-dark-blue);
-  font: var(--font-bold-small);
+  font: var(--font-bold-tiny);
   cursor: pointer;
 }
 
@@ -74,7 +82,7 @@
   border-radius: 5px;
   background-color: var(--color-dark-gray);
   color: var(--color-dark-blue);
-  font: var(--font-bold-small);
+  font: var(--font-bold-tiny);
   cursor: pointer;
 }
 
@@ -84,6 +92,25 @@
 
 .sectionTitle {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 20px;
+  left: 20px;
+  color: var(--color-dark-gray);
+}
+
+.sectionContent {
+  padding-top: 40px;
+  color: var(--color-white);
+}
+
+.qASection {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+  padding: 20px;
+}
+
+.answerSection {
+  flex: 1.5;
 }
