@@ -16,7 +16,7 @@ function SelectTopicPage() {
     const data = { topic, difficulty };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chat2", {
+      const response = await axios.post("http://localhost:5000/api/category", {
         data,
       });
 

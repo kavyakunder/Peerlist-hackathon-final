@@ -17,7 +17,7 @@ let initialMessages = [
 
 let messages = [...initialMessages];
 
-router.post("/chat2", async (req, res) => {
+router.post("/category", async (req, res) => {
   try {
     const { topic, difficulty } = req.body.data;
 
