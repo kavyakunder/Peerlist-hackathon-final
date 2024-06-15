@@ -19,6 +19,9 @@
   --font-bold-small: 500 24px "Roboto";
   --font-p: 300 25px "Roboto";
   --font-thin-small: 300 16px "Roboto";
+  --font-size-big: 3rem;
+  --font-size-medium: 2rem;
+  --font-size-small: 1rem;
 }
 
 /* padding */

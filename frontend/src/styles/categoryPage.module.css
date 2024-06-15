@@ -3,18 +3,18 @@
   justify-content: center;
   gap: 9rem;
   background-color: var(--color-dark-blue);
-  margin-top: 3rem;
+  margin-top: var(--font-size-big);
 }
 
 .categoryBtnContainer {
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: var(--font-size-small);
 }
 
 .categoryBtn {
-  margin: 1rem;
-  padding: 0.6rem 1rem;
+  margin: var(--font-size-small);
+  padding: 0.6rem var(--font-size-small);
   font-size: 1.2rem;
   font-weight: 500;
   background-color: var(--color-dark-gray);
@@ -51,13 +51,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
+  margin-top: var(--font-size-mediun);
 }
 
 .categoryHeading {
   color: var(--color-white);
   text-align: center;
-  font-size: 2rem;
+  font-size: var(--font-size-medium);
   text-decoration: underline;
   text-decoration-color: var(--color-space-blue);
   text-decoration-thickness: 2px;
@@ -66,7 +66,7 @@
 .mainHeading {
   text-align: center;
   color: var(--color-white);
-  font-size: 3rem;
+  font-size: var(--font-size-big);
 }
 
 .verticalLine {

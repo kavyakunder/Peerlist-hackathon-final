@@ -2,7 +2,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import RootLayout from "./pages/RootLayout";
 import InterviewPage from "./pages/InterviewPage";
-import SelectTopicPage from "./pages/SelectTopicPage";
+import CategoryPage from "./pages/CategoryPage";
 
 const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { path: "/", element: <LandingPage /> },
-      { path: "/category", element: <SelectTopicPage /> }, //TODO: check case
+      { path: "/category", element: <CategoryPage /> },
       { path: "/interview", element: <InterviewPage /> },
     ],
   },
