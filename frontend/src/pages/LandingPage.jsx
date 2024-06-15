@@ -1,5 +1,6 @@
 import landingPageStyles from "../styles/landingPage.module.css";
 import InterviewScreen from "../assets/interview sample image.jpg";
+import { Link } from "react-router-dom";
 
 export default function LandingPage() {
   return (
@@ -13,7 +14,11 @@ export default function LandingPage() {
             Q&Ace is your AI-powered interview coach. Experience realistic mock
             interviews, get personalized feedback, and master every question.
           </p>
-          <button className={landingPageStyles.startButton}>Start</button>
+          <Link to="/category">
+            <button className={landingPageStyles.startButton}>
+              Start
+            </button>
+          </Link>
         </div>
       </section>
 
