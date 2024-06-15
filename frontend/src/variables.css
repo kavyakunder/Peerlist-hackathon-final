@@ -4,7 +4,6 @@
 :root {
   /* colors */
   --color-white: #ffffff;
-
   --color-dark-blue: #141427;
   --color-medium-blue: #1e1e32;
   --color-teal: #00adb5;
@@ -32,5 +31,3 @@
   --gap-medium: 20px;
   --gap-large: 30px;
 }
-
-/* margin */
