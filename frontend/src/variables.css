@@ -1,8 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Road+Rage&display=swap");
 
-/* colors */
+:root {
+  /* colors */
+  --color-white: #ffffff;
 
-/* fonts */
+  --color-dark-blue: #141427;
+  --color-teal: #00adb5;
+  --color-light-gray: #eeeeee;
+  --color-medium-gray: #bfbfbf;
+
+  /* fonts */
+  --font-h1: 700 70px "Roboto";
+  --font-bold-big: 700 30px "Roboto";
+  --font-bold-small: 500 24px "Roboto";
+  --font-p: 300 25px "Roboto";
+  --font-thin-small: 300 16px "Roboto";
+}
 
 /* padding */
 
