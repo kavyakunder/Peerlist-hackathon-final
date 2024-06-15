@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const Groq = require("groq-sdk");
+require("dotenv").config();
+
 const groq = new Groq({
-  apiKey: "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",
+  apiKey: process.env.GROQ_API_KEY,
 });
 
 let questionCount = 0;
