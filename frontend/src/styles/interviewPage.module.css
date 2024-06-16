@@ -140,3 +140,19 @@
     font-size: 16px;
   }
 }
+
+.glowingEffect {
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px var(--color-dark-gray);
+  }
+  50% {
+    box-shadow: 0 0 40px var(--color-dark-gray);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--color-dark-gray);
+  }
+}
