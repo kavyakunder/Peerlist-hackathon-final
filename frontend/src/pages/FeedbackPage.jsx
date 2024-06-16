@@ -2,25 +2,11 @@ import StarRating from "../components/ui/StarRating";
 import feedbackPageStyles from "../styles/feedbackPage.module.css";
 import { Link } from "react-router-dom";
 import landingPageStyles from "../styles/landingPage.module.css";
+import { useEffect, useState } from "react";
+import { LOCAL_URL } from "../api";
+import axios from "axios";
 
-const interviewFeedback = {
-  analysis: [
-    {
-      id: 1,
-      paramName: "Knowledge",
-      percent: 20,
-    },
-    {
-      id: 2,
-      paramName: "Confidence",
-      percent: 40,
-    },
-    {
-      id: 3,
-      paramName: "Precision",
-      percent: 80,
-    },
-  ],
+const INTERVIEW_FEEDBACK = {
   technicalFeedback: [
     {
       id: 1,
@@ -42,14 +28,37 @@ const interviewFeedback = {
 };
 
 export default function FeedbackPage() {
+  const [feedback, setFeedback] = useState();
+
+  const [interviewFeedback, setInterviewFeedback] =
+    useState(INTERVIEW_FEEDBACK);
+
+  useEffect(() => {
+    handleGetFeedback();
+  }, []);
+
+  const handleGetFeedback = async () => {
+    try {
+      const response = await axios.get(`${LOCAL_URL}/api/feedback`);
+
+      if (response?.data?.message) {
+        const parseData = JSON.parse(response?.data?.message);
+
+        setFeedback(response.data.message);
+        setInterviewFeedback(parseData);
+      }
+
+      // resetTranscript();
+    } catch (error) {}
+  };
   return (
     <div className={feedbackPageStyles.feedbackPageLayout}>
       <div className={feedbackPageStyles.feedbackSection}>
         <h1 className={feedbackPageStyles.centeredTitle}>Technical Feedback</h1>
-        {interviewFeedback.technicalFeedback.map((item) => (
+        {interviewFeedback?.technicalFeedback.map((item) => (
           <div key={item.id} className={feedbackPageStyles.feedbackContent}>
-            <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
-            <StarRating rating={item.rating} />
+            <p className={feedbackPageStyles.feedbackText}>{item.feedback}</p>
+            <StarRating rating={item.rating.toString().split("/")[0]} />
           </div>
         ))}
       </div>
@@ -75,7 +84,7 @@ export default function FeedbackPage() {
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
         <h1 className={feedbackPageStyles.centeredTitle}>General Feedback</h1>
-        <p>{interviewFeedback.generalFeedback}</p>
+        <p>{interviewFeedback?.generalFeedback}</p>
       </div>
       <Link to="/" className={landingPageStyles.startButton}>
         Go to home page
