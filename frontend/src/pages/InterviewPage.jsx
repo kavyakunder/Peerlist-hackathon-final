@@ -7,18 +7,18 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { useNavigate } from "react-router-dom";
-import { DEV_URL } from "../api";
+import { LOCAL_URL } from "../api";
 
 export default function InterviewPage() {
   const navigate = useNavigate();
   const [aiResponse, setAiResponse] = useState("");
+
   const [isInterviewerSpeaking, setIsInterviewerSpeaking] = useState(false);
   const [loading, setLoading] = useState(true);
   const [glowingEffect, setGlowingEffect] = useState({
     user: false,
     interviewer: false,
   });
-  // TODO: REMOVE
   const isRun = useRef(false);
 
   const {
@@ -39,15 +39,13 @@ export default function InterviewPage() {
   useEffect(() => {
     const firstRequestToGroq = async () => {
       try {
-        const response = await axios.post(`${DEV_URL}/api/chat`, {
+        const response = await axios.post(`${LOCAL_URL}/api/chat`, {
           transcript: "",
         });
         setAiResponse(response.data.content);
         speak(response.data.content);
         // resetTranscript();
-      } catch (error) {
-        console.error("Error during conversation:", error);
-      }
+      } catch (error) {}
     };
 
     if (isRun.current === true) return;
@@ -56,10 +54,20 @@ export default function InterviewPage() {
 
     setTimeout(() => {
       firstRequestToGroq();
-    }, 1000);
+    }, 2000);
   }, []);
 
-  // TODO: check case
+  useEffect(() => {
+    const interviewComplete = "Thank you for interviewing with QnAce";
+
+    if (
+      aiResponse?.includes(interviewComplete) &&
+      isInterviewerSpeaking === false
+    ) {
+      navigate("/feedback");
+    }
+  }, [aiResponse, isInterviewerSpeaking]);
+
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition</span>;
   }
@@ -82,21 +90,15 @@ export default function InterviewPage() {
     SpeechRecognition.stopListening();
 
     try {
-      const response = await axios.post(
-        `${DEV_URL}/api/chat`, //TODO: extract URL
-        {
-          transcript,
-        }
-      );
+      const response = await axios.post(`${LOCAL_URL}/api/chat`, {
+        transcript,
+      });
       setAiResponse(response.data.content);
       speak(response.data.content);
       resetTranscript();
-    } catch (error) {
-      console.error("Error during conversation:", error);
-    }
+    } catch (error) {}
   };
 
-  // TODO: convert to const and try to move up
   function speak(aiResponse) {
     setGlowingEffect((prev) => {
       return { ...prev, interviewer: true };
