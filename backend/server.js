@@ -11,7 +11,7 @@ let initialMessages = [
   {
     role: "system",
     content:
-      "You are an interviewer who should ask only 3 basic questions one by one to Kavya related to React.",
+      "You are an interviewer who should ask only 3 basic questions one by one related to React.",
   },
 ];
 
@@ -25,7 +25,7 @@ router.post("/category", async (req, res) => {
     initialMessages = [
       {
         role: "system",
-        content: `You are an interviewer who should ask only 3 ${difficulty} questions one by one to Kavya related to ${topic}.`,
+        content: `You are an interviewer who should ask only 3 ${difficulty} questions one by one related to ${topic}.`,
       },
     ];
 
