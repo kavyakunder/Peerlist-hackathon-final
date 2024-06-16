@@ -16,17 +16,14 @@
   flex-direction: column;
   gap: var(--gap-large);
   align-items: center;
+  width: 100%;
 }
 
 .feedbackContent {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.feedback {
-  display: flex;
-  gap: var(--gap-small);
+  align-items: center;
 }
 
 .feedbackText {
@@ -65,27 +62,20 @@
 }
 
 .progressValue {
-  /* animation: transition width; */
+  transition: width 1s;
   box-shadow: 0 10px 40px -10px #fff;
   border-radius: 100px;
   background: var(--color-teal);
   height: 10px;
-  width: 80px;
-}
-
-@keyframes load {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 10%;
-  }
 }
 
 .progressBarContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0;
-  margin: 0;
+  width: 100%;
+}
+
+.centeredTitle {
+  text-align: center;
 }

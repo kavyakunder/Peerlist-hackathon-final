@@ -8,17 +8,17 @@ const interviewFeedback = {
     {
       id: 1,
       paramName: "Knowledge",
-      percent: "20",
+      percent: 20,
     },
     {
       id: 2,
       paramName: "Confidence",
-      percent: "40",
+      percent: 40,
     },
     {
       id: 3,
       paramName: "Precision",
-      percent: "80",
+      percent: 80,
     },
   ],
   technicalFeedback: [
@@ -45,42 +45,36 @@ export default function FeedbackPage() {
   return (
     <div className={feedbackPageStyles.feedbackPageLayout}>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>Technical Feedback</h1>
+        <h1 className={feedbackPageStyles.centeredTitle}>Technical Feedback</h1>
         {interviewFeedback.technicalFeedback.map((item) => (
           <div key={item.id} className={feedbackPageStyles.feedbackContent}>
-            <div className={feedbackPageStyles.feedback}>
-              <p>{item.id}.</p>
-              <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
-            </div>
+            <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
             <StarRating rating={item.rating} />
           </div>
         ))}
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>Analysiss</h1>
+        <h1 className={feedbackPageStyles.centeredTitle}>Analysis</h1>
 
-        {interviewFeedback.analysis.map((item) => {
+        {interviewFeedback.analysis?.map((item) => {
           return (
-            <>
-              <div
-                className={feedbackPageStyles.progressBarContainer}
-                style={{ display: "flex", justifyContent: "space-between" }}
-              >
-                <span style={{ paddingRight: "10px" }}>{item.paramName}</span>
-
-                <div className={feedbackPageStyles.progress}>
-                  <div
-                    style={{ width: `${item.percent}%` }}
-                    className={feedbackPageStyles.progressValue}
-                  ></div>
-                </div>
+            <div
+              key={item.id}
+              className={feedbackPageStyles.progressBarContainer}
+            >
+              <p>{item.paramName}</p>
+              <div className={feedbackPageStyles.progress}>
+                <div
+                  style={{ width: `${item.percent}%` }}
+                  className={feedbackPageStyles.progressValue}
+                />
               </div>
-            </>
+            </div>
           );
         })}
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>General Feedback</h1>
+        <h1 className={feedbackPageStyles.centeredTitle}>General Feedback</h1>
         <p>{interviewFeedback.generalFeedback}</p>
       </div>
       <Link to="/" className={landingPageStyles.startButton}>
