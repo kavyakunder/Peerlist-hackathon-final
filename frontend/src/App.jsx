@@ -4,6 +4,7 @@ import RootLayout from "./pages/RootLayout";
 import InterviewPage from "./pages/InterviewPage";
 import CategoryPage from "./pages/CategoryPage";
 import FeedbackPage from "./pages/FeedbackPage";
+import ErrorPage from "./pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "/category", element: <CategoryPage /> },
       { path: "/interview", element: <InterviewPage /> },
       { path: "/feedback", element: <FeedbackPage /> },
+      { path: "/*", element: <ErrorPage /> },
     ],
   },
 ]);
