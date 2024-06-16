@@ -11,8 +11,8 @@ export default function LandingPage() {
             Ace Your Interviews with AI Precision
           </h1>
           <p className={landingPageStyles.description}>
-            Q&Ace is your AI-powered interview coach. Experience realistic mock
-            interviews, get personalized feedback, and master every question.
+            Worried AI will steal your job? Let AI help you land one instead.
+            Try QnAce!
           </p>
           <Link to="/category">
             <button className={landingPageStyles.startButton}>Start</button>
@@ -33,32 +33,29 @@ export default function LandingPage() {
       >
         <div className={landingPageStyles.bulletPoints}>
           <h4 className={landingPageStyles.bulletTitle}>
-            AI-Powered Interview Simulation
+            Perfect Interview Environment
           </h4>
           <p className={landingPageStyles.bulletDescription}>
-            Experience realistic mock interviews powered by advanced AI
-            algorithms. Practice answering a wide range of interview questions
-            tailored to various industries and roles.
+            Practice with a realistic AI interviewer who asks insightful
+            questions and simulates a true interview setting.
           </p>
         </div>
         <div className={landingPageStyles.bulletPoints}>
           <h4 className={landingPageStyles.bulletTitle}>
-            Intense Interview Preparation
+            Targeted Practice, Tangible Results
           </h4>
           <p className={landingPageStyles.bulletDescription}>
-            Access a comprehensive library of interview tips, strategies, and
-            resources curated by industry experts. From resume building to
-            mastering behavioral interviews
+            Master the core interview topics with our strategically chosen topic
+            focus and difficulty level.
           </p>
         </div>
         <div className={landingPageStyles.bulletPoints}>
           <h4 className={landingPageStyles.bulletTitle}>
-            Real-Time Performance Analytics
+            Performance Analysis by AI experts
           </h4>
           <p className={landingPageStyles.bulletDescription}>
-            Track your interview performance with detailed analytics and
-            progress reports. Gain insights into your strengths and areas for
-            improvement based on metrics such as response clarity.
+            Receive comprehensive feedback at the end of each session, covering
+            your verbal and nonverbal communication.
           </p>
         </div>
       </section>
