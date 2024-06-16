@@ -22,14 +22,12 @@ const feedback = [
 export default function FeedbackPage() {
   return (
     <div>
-      <h1> Feedback </h1>
       <div className={feedbackPageStyles.feedbackPageLayout}>
+        <h1> Feedback </h1>
         {feedback.map((item) => (
-          <div key={item.id}>
-            <p>{item.response}</p>
-            <p>
-              <StarRating rating={item.rating} />
-            </p>
+          <div key={item.id} className={feedbackPageStyles.feedback}>
+            <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
+            <StarRating rating={item.rating} />
           </div>
         ))}
       </div>
