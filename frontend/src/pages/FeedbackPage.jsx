@@ -1,5 +1,7 @@
+import { Doughnut } from "react-chartjs-2";
 import StarRating from "../components/ui/StarRating";
 import feedbackPageStyles from "../styles/feedbackPage.module.css";
+import { data, options } from "../components/PieChart";
 
 const feedback = [
   {
@@ -21,15 +23,18 @@ const feedback = [
 
 export default function FeedbackPage() {
   return (
-    <div>
-      <div className={feedbackPageStyles.feedbackPageLayout}>
-        <h1> Feedback </h1>
-        {feedback.map((item) => (
-          <div key={item.id} className={feedbackPageStyles.feedback}>
-            <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
-            <StarRating rating={item.rating} />
-          </div>
-        ))}
+    <div className={feedbackPageStyles.feedbackPageLayout}>
+      <h1> Technical Feedback </h1>
+      {feedback.map((item) => (
+        <div key={item.id} className={feedbackPageStyles.feedback}>
+          <p>{item.id}.</p>
+          <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
+          <StarRating rating={item.rating} />
+        </div>
+      ))}
+      <h1> Analysis </h1>
+      <div>
+        <Doughnut data={data} width={500} height={500} options={options} />
       </div>
     </div>
   );
