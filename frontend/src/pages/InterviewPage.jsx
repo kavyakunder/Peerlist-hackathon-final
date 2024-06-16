@@ -100,32 +100,13 @@ export default function InterviewPage() {
           className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection}`}
         >
           <p className={interviewStyles.sectionTitle}>Question</p>
-          <p className={interviewStyles.sectionContent}>
-            {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
-            delectus cum quis exercitationem, earum unde vero a facilis pariatur
-            inventore molestias nostrum consectetur dicta sit magni possimus
-            amet minima quod! */}
-            {aiResponse}
-          </p>
+          <p className={interviewStyles.sectionContent}>{aiResponse}</p>
         </div>
         <div
           className={`${interviewStyles.sectionBackground} ${interviewStyles.qASection} ${interviewStyles.answerSection}`}
         >
           <p className={interviewStyles.sectionTitle}>Answer</p>
-          <p className={interviewStyles.sectionContent}>
-            {/* Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
-            delectus cum quis exercitationem, earum unde vero a facilis pariatur
-            inventore molestias nostrum consectetur dicta sit magni possimus
-            amet minima quod! Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Asperiores delectus cum quis exercitationem, earum
-            unde vero a facilis pariatur inventore molestias nostrum consectetur
-            dicta sit magni possimus amet minima quod! Lorem ipsum dolor sit
-            amet, consectetur adipisicing elit. Asperiores delectus cum quis
-            exercitationem, earum unde vero a facilis pariatur inventore
-            molestias nostrum consectetur dicta sit magni possimus amet minima
-            quod! */}
-            {transcript}
-          </p>
+          <p className={interviewStyles.sectionContent}>{transcript}</p>
         </div>
       </div>
     </div>
