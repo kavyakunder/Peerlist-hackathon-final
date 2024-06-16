@@ -3,7 +3,7 @@ import axios from "axios";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
-
+import { DEV_URL } from "../../api";
 export default function InterviewBody() {
   const [aiResponse, setAiResponse] = useState("");
 
@@ -38,7 +38,7 @@ export default function InterviewBody() {
     SpeechRecognition.stopListening();
 
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post(`${DEV_URL}/api/chat`, {
         transcript,
       });
       setAiResponse(response.data.content);
