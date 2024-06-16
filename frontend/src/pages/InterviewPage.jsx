@@ -56,8 +56,6 @@ export default function InterviewPage() {
     speechSynthesis.speak(utterance);
   }
 
-  console.log("ckdnsckjekfhju");
-
   return (
     <div className={interviewStyles.interviewLayout}>
       <div className={interviewStyles.interviewLHS}>
