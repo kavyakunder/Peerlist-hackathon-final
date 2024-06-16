@@ -4,7 +4,10 @@ const chatRoute = require("./server.js");
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: [
+    "https://peerlist-hackathon-final-frontend.vercel.app/",
+    "http://localhost:3000",
+  ],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
@@ -12,6 +15,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use("/api", chatRoute);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
