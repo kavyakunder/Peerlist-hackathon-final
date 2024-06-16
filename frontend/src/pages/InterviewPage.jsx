@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import interviewStyles from "../styles/interviewPage.module.css";
 import qnAceInterviewer from "../assets/qnAceInterviewer.jpg";
 import qnAceInterviewee from "../assets/qnAceInterviewee.png";

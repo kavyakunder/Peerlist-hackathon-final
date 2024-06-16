@@ -23,9 +23,12 @@ function CategoryPage() {
     };
 
     try {
-      const response = await axios.post("http://localhost:5000/api/category", {
-        data,
-      });
+      const response = await axios.post(
+        "https://peerlist-hackathon-final.vercel.app/api/category",
+        {
+          data,
+        }
+      );
       console.log("response is", response);
     } catch (error) {
       console.error("Error during conversation:", error);
