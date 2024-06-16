@@ -56,28 +56,103 @@ router.post("/chat", async (req, res) => {
 });
 
 router.get("/feedback", async (req, res) => {
+  const theMessage = [
+    {
+      role: "system",
+      content:
+        'You are an interviewer who should ask only 3 easy questions one by one related to CSS. Greet the user and directly start with the question. After the user responds, give a very short explanation and move to next question. Once all the questions are done, say "Thank you for interviewing with QnAce."',
+    },
+    { role: "user", content: "" },
+    {
+      role: "assistant",
+      content:
+        "Welcome to QnAce! We're excited to have you in for an interview today. We'll be asking you a series of questions related to CSS. Here's your first question:\n" +
+        "\n" +
+        "What is a CSS selector, and how is it used in CSS?\n" +
+        "\n" +
+        "Please respond, and we'll take it from there.",
+    },
+    {
+      role: "user",
+      content:
+        "CSS selectors are used to target HTML elements on our web page that we want to style",
+    },
+    {
+      role: "assistant",
+      content:
+        "That's correct! CSS selectors are a crucial part of CSS, as they determine which HTML elements to apply styles to. Well done!\n" +
+        "\n" +
+        "Let's move on to the next question. Here it is:\n" +
+        "\n" +
+        "What is the difference between the `id` and `class` attributes in CSS?",
+    },
+    {
+      role: "user",
+      content:
+        "ID is a unique identifier where as classes are not Yoni but both are used to styling",
+    },
+    {
+      role: "assistant",
+      content:
+        "That's mostly correct! ID is indeed a unique identifier, while classes can be used multiple times on the same HTML document. However, IDs should be unique within a document, while classes can be reused as many times as needed.\n" +
+        "\n" +
+        "The main difference is that IDs are typically used for single-purpose styling, whereas classes are often used for repetitive styling. IDs are also more precise in terms of targeting a specific element, while classes are more general and can be applied to multiple elements.\n" +
+        "\n" +
+        "You're getting close!\n" +
+        "\n" +
+        "Next question:\n" +
+        "\n" +
+        "What is the purpose of the `!important` keyword in CSS?",
+    },
+    {
+      role: "user",
+      content: "important keyword is used to specify very important classes",
+    },
+    {
+      role: "assistant",
+      content:
+        "I think there's a misunderstanding! The `!important` keyword in CSS is not used to specify important classes, but rather to give the declaration higher priority and override other styling rules. When you add `!important` to the end of a CSS declaration, it means that this specific style will take precedence over other styles with the same selector.\n" +
+        "\n" +
+        "For example: `color: red !important;`\n" +
+        "\n" +
+        "This means that the color of the text will always be red, even if another stylesheet or a higher-priority selector is trying to change it.\n" +
+        "\n" +
+        "Don't worry, it's a common misconception!\n" +
+        "\n" +
+        "Thank you for interviewing with QnAce!",
+    },
+  ];
+  // console.log("messgaes", messages);
+
   const interviewFeedback = {
     technicalFeedback: [
       {
         id: 1,
-        response: "[response_1]",
+        feedback: "[feedback_1]",
         rating: "[rating_1]",
       },
       {
         id: 2,
-        response: "[response_2]",
+        feedback: "[feedback_2]",
         rating: "[rating_2]",
       },
       {
         id: 3,
-        response: "[response_3]",
-        rating: "[rating_3]",
+        feedback: "[feedback_3]",
+        rating: "[rating_2]",
       },
     ],
     generalFeedback: "[general_feedback]",
   };
 
-  const prompt = `Generate feedback in the following JSON format. ${interviewFeedback}`;
+  console.log("themessage", theMessage);
+
+  const prompt = `Analyse the conversation from ${JSON.stringify(
+    theMessage
+  )} to give detailed feedback and format it strictly according to ${JSON.stringify(
+    interviewFeedback
+  )}. Ensure the result you will provide contains only the object data without any surrounding text or additional strings. Dont write 
+  "here is the response" or anything additional`;
 
   try {
     const feedbackMessage = [
@@ -102,7 +177,8 @@ router.get("/feedback", async (req, res) => {
       const delta = chunk.choices[0]?.delta?.content || "";
       response += delta;
     }
-
+    console.log("response", response);
+    // console.log("converitn to;
     res.status(200).json({ message: response });
   } catch (err) {
     console.log("Err", err);

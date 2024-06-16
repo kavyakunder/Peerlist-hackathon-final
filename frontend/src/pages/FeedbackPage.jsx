@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { LOCAL_URL } from "../api";
 import axios from "axios";
 
-const interviewFeedback = {
+const INTERVIEW_FEEDBACK = {
   technicalFeedback: [
     {
       id: 1,
@@ -31,7 +31,9 @@ const interviewFeedback = {
 
 export default function FeedbackPage() {
   const [feedback, setFeedback] = useState();
-  console.log("🚀 ~ FeedbackPage ~ feedback:", feedback);
+
+  const [interviewFeedback, setInterviewFeedback] =
+    useState(INTERVIEW_FEEDBACK);
 
   useEffect(() => {
     handleGetFeedback();
@@ -40,8 +42,13 @@ export default function FeedbackPage() {
   const handleGetFeedback = async () => {
     try {
       const response = await axios.get(`${LOCAL_URL}/api/feedback`);
-      console.log("🚀 ~ handleGetFeedback ~ response:", response.data.message);
-      setFeedback(response.data.message);
+
+      if (response?.data?.message) {
+        const parseData = JSON.parse(response?.data?.message);
+
+        setFeedback(response.data.message);
+        setInterviewFeedback(parseData);
+      }
 
       // resetTranscript();
     } catch (error) {
@@ -52,13 +59,13 @@ export default function FeedbackPage() {
     <div className={feedbackPageStyles.feedbackPageLayout}>
       <div className={feedbackPageStyles.feedbackSection}>
         <h1>Technical Feedback</h1>
-        {interviewFeedback.technicalFeedback.map((item) => (
+        {interviewFeedback?.technicalFeedback.map((item) => (
           <div key={item.id} className={feedbackPageStyles.feedbackContent}>
             <div className={feedbackPageStyles.feedback}>
               <p>{item.id}.</p>
-              <p className={feedbackPageStyles.feedbackText}>{item.response}</p>
+              <p className={feedbackPageStyles.feedbackText}>{item.feedback}</p>
             </div>
-            <StarRating rating={item.rating} />
+            <StarRating rating={item.rating.toString().split("/")[0]} />
           </div>
         ))}
       </div>
@@ -70,7 +77,7 @@ export default function FeedbackPage() {
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
         <h1>General Feedback</h1>
-        <p>{interviewFeedback.generalFeedback}</p>
+        <p>{interviewFeedback?.generalFeedback}</p>
       </div>
       <Link to="/" className={landingPageStyles.startButton}>
         Go to home page
