@@ -36,9 +36,18 @@
 
 @media screen and (max-width: 1000px) {
   .feedbackPageLayout {
-    /* min-height: 60vh; */
-    /* flex-wrap: wrap; */
-    /* max-width: 80%; */
+    max-width: 80%;
+    width: auto;
     gap: var(--gap-x-large);
+  }
+
+  .feedbackContent {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--gap-x-small);
+  }
+
+  .feedbackText {
+    max-width: 100%;
   }
 }
