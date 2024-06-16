@@ -13,6 +13,7 @@
   background: rgba(20, 20, 39, 0.5);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  z-index: 10;
 }
 
 .appName {

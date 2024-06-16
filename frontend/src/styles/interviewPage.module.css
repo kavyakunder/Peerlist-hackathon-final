@@ -114,3 +114,29 @@
 .answerSection {
   flex: 1.5;
 }
+
+@media screen and (max-width: 1000px) {
+  .interviewRHS {
+    display: none;
+  }
+
+  .interviewLayout {
+    height: auto;
+    padding-bottom: var(--padding-x-large);
+    min-height: calc(100vh - 100px);
+  }
+
+  .interviewerProfile {
+    max-height: 20vh;
+  }
+
+  .intervieweeProfile {
+    max-height: 20vh;
+  }
+
+  .sectionTitle {
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+  }
+}
