@@ -16,17 +16,14 @@
   flex-direction: column;
   gap: var(--gap-large);
   align-items: center;
+  width: 100%;
 }
 
 .feedbackContent {
   display: flex;
   justify-content: space-between;
   width: 100%;
-}
-
-.feedback {
-  display: flex;
-  gap: var(--gap-small);
+  align-items: center;
 }
 
 .feedbackText {
@@ -50,4 +47,35 @@
   .feedbackText {
     max-width: 100%;
   }
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 20px;
+  width: 400px;
+}
+
+.progressValue {
+  transition: width 1s;
+  box-shadow: 0 10px 40px -10px #fff;
+  border-radius: 100px;
+  background: var(--color-teal);
+  height: 10px;
+}
+
+.progressBarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.centeredTitle {
+  text-align: center;
 }

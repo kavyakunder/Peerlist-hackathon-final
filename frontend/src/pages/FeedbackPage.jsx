@@ -1,7 +1,5 @@
-import { Doughnut } from "react-chartjs-2";
 import StarRating from "../components/ui/StarRating";
 import feedbackPageStyles from "../styles/feedbackPage.module.css";
-import { data, options } from "../components/PieChart";
 import { Link } from "react-router-dom";
 import landingPageStyles from "../styles/landingPage.module.css";
 import { useEffect, useState } from "react";
@@ -58,25 +56,36 @@ export default function FeedbackPage() {
   return (
     <div className={feedbackPageStyles.feedbackPageLayout}>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>Technical Feedback</h1>
+        <h1 className={feedbackPageStyles.centeredTitle}>Technical Feedback</h1>
         {interviewFeedback?.technicalFeedback.map((item) => (
           <div key={item.id} className={feedbackPageStyles.feedbackContent}>
-            <div className={feedbackPageStyles.feedback}>
-              <p>{item.id}.</p>
-              <p className={feedbackPageStyles.feedbackText}>{item.feedback}</p>
-            </div>
+            <p className={feedbackPageStyles.feedbackText}>{item.feedback}</p>
             <StarRating rating={item.rating.toString().split("/")[0]} />
           </div>
         ))}
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>Analysis</h1>
-        <div>
-          <Doughnut data={data} width={500} height={500} options={options} />
-        </div>
+        <h1 className={feedbackPageStyles.centeredTitle}>Analysis</h1>
+
+        {interviewFeedback.analysis?.map((item) => {
+          return (
+            <div
+              key={item.id}
+              className={feedbackPageStyles.progressBarContainer}
+            >
+              <p>{item.paramName}</p>
+              <div className={feedbackPageStyles.progress}>
+                <div
+                  style={{ width: `${item.percent}%` }}
+                  className={feedbackPageStyles.progressValue}
+                />
+              </div>
+            </div>
+          );
+        })}
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>General Feedback</h1>
+        <h1 className={feedbackPageStyles.centeredTitle}>General Feedback</h1>
         <p>{interviewFeedback?.generalFeedback}</p>
       </div>
       <Link to="/" className={landingPageStyles.startButton}>
