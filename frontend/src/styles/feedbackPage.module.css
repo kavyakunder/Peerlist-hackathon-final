@@ -65,7 +65,7 @@
 }
 
 .progressValue {
-  animation: transition width;
+  /* animation: transition width; */
   box-shadow: 0 10px 40px -10px #fff;
   border-radius: 100px;
   background: var(--color-teal);
