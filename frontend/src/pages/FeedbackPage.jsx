@@ -1,4 +1,5 @@
-import React from "react";
+import StarRating from "../components/ui/StarRating";
+import feedbackPageStyles from "../styles/feedbackPage.module.css";
 
 const feedback = [
   {
@@ -21,12 +22,17 @@ const feedback = [
 export default function FeedbackPage() {
   return (
     <div>
-      {feedback.map((item) => (
-        <div key={item.id}>
-          <p>{item.response}</p>
-          <p>{item.rating}</p>
-        </div>
-      ))}
+      <h1> Feedback </h1>
+      <div className={feedbackPageStyles.feedbackPageLayout}>
+        {feedback.map((item) => (
+          <div key={item.id}>
+            <p>{item.response}</p>
+            <p>
+              <StarRating rating={item.rating} />
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
