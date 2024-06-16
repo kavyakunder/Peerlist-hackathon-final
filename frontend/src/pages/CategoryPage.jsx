@@ -3,6 +3,7 @@ import categoryPageStyles from "../styles/categoryPage.module.css";
 import axios from "axios";
 import { ALL_LEVELS, ALL_TOPICS } from "../constants/categories";
 import { Link } from "react-router-dom";
+import { DEV_URL } from "../api";
 
 function CategoryPage() {
   const [topic, setTopic] = useState(ALL_TOPICS[0]);
@@ -16,24 +17,21 @@ function CategoryPage() {
     setTopic(topic);
   }
 
-  async function sendCategoryToBackend() {
+  const sendCategoryToBackend = async () => {
     const data = {
       topic: topic.name,
       difficulty: difficulty.name.toLowerCase(),
     };
 
     try {
-      const response = await axios.post(
-        "https://peerlist-hackathon-final.vercel.app/api/category",
-        {
-          data,
-        }
-      );
+      const response = await axios.post(`${DEV_URL}/api/category`, {
+        data,
+      });
       console.log("response is", response);
     } catch (error) {
       console.error("Error during conversation:", error);
     }
-  }
+  };
 
   return (
     <div className={categoryPageStyles.mainContainer}>

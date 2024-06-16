@@ -7,35 +7,25 @@ const groq = new Groq({
   apiKey: process.env.GROQ_API_KEY,
 });
 
-let initialMessages = [
-  {
-    role: "system",
-    content:
-      "You are an interviewer who should ask only 3 basic questions one by one related to React.",
-  },
-];
-
-let messages = [...initialMessages];
+let messages = [];
 
 router.post("/category", async (req, res) => {
   try {
     const { topic, difficulty } = req.body.data;
 
-    messages.pop();
-    initialMessages = [
+    messages = [
       {
         role: "system",
         content: `You are an interviewer who should ask only 3 ${difficulty} questions one by one related to ${topic}.`,
       },
     ];
 
-    messages = [...initialMessages];
-
     res.status(200).json({ message: "Success: Prompt updated" });
   } catch (err) {
     console.log("Err", err);
   }
 });
+
 router.post("/chat", async (req, res) => {
   try {
     const userResponse = req.body.transcript;
@@ -59,8 +49,6 @@ router.post("/chat", async (req, res) => {
 
     messages.push({ role: "assistant", content: response });
     res.json({ role: "assistant", content: response });
-
-    console.log("Message is", messages);
   } catch (error) {
     console.error("Error during conversation:", error);
     res.status(500).json({ error: "Error during conversation" });
