@@ -14,7 +14,11 @@ export default function InterviewPage() {
   const [aiResponse, setAiResponse] = useState("");
   const [isInterviewerSpeaking, setIsInterviewerSpeaking] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const [glowingEffect, setGlowingEffect] = useState({
+    user: false,
+    interviewer: false,
+  });
+  // TODO: REMOVE
   const isRun = useRef(false);
 
   const {
@@ -61,6 +65,9 @@ export default function InterviewPage() {
   }
 
   const handleStartListeningUser = () => {
+    setGlowingEffect((prev) => {
+      return { ...prev, user: true };
+    });
     SpeechRecognition.startListening({
       continuous: true,
       language: "en-IN",
@@ -69,6 +76,9 @@ export default function InterviewPage() {
   };
 
   const handleStopListeningUser = async () => {
+    setGlowingEffect((prev) => {
+      return { ...prev, user: false };
+    });
     SpeechRecognition.stopListening();
 
     try {
@@ -88,12 +98,18 @@ export default function InterviewPage() {
 
   // TODO: convert to const and try to move up
   function speak(aiResponse) {
+    setGlowingEffect((prev) => {
+      return { ...prev, interviewer: true };
+    });
     const utterance = new SpeechSynthesisUtterance(aiResponse);
     const voices = speechSynthesis.getVoices();
     utterance.voice = voices[3];
     utterance.lang = "en-IN";
     utterance.onend = () => {
       setIsInterviewerSpeaking(false);
+      setGlowingEffect((prev) => {
+        return { ...prev, interviewer: false };
+      });
     };
     speechSynthesis.speak(utterance);
     setIsInterviewerSpeaking(true);
@@ -115,7 +131,11 @@ export default function InterviewPage() {
               <img
                 src={qnAceInterviewer}
                 alt="AI Interviewer"
-                className={interviewStyles.interviewerProfile}
+                className={`${interviewStyles.interviewerProfile} ${
+                  glowingEffect.interviewer === true
+                    ? interviewStyles.glowingEffect
+                    : ""
+                }`}
               />
             </div>
             <div
@@ -125,7 +145,11 @@ export default function InterviewPage() {
               <img
                 src={qnAceInterviewee}
                 alt="AI Interviewee"
-                className={interviewStyles.intervieweeProfile}
+                className={`${interviewStyles.intervieweeProfile} ${
+                  glowingEffect.user === true
+                    ? interviewStyles.glowingEffect
+                    : ""
+                }`}
               />
               <div className={interviewStyles.intervieweeControlButtonGroup}>
                 <button
