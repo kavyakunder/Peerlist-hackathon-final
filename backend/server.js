@@ -30,7 +30,8 @@ router.post("/category", async (req, res) => {
     ];
 
     messages = [...initialMessages];
-    console.log("this is rhee", topic, difficulty);
+
+    res.status(200).json({ message: "Success: Prompt updated" });
   } catch (err) {
     console.log("Err", err);
   }
