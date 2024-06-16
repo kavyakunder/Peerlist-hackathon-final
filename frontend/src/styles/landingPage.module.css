@@ -69,3 +69,35 @@
   font: var(--font-thin-small);
   color: var(--color-medium-gray);
 }
+
+.demoImage {
+  width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    min-height: 60vh;
+    flex-wrap: wrap;
+    max-width: 80%;
+    gap: var(--gap-x-large);
+  }
+
+  .bulletPointsSection {
+    padding-bottom: var(--padding-x-large);
+  }
+
+  .bulletTitle {
+    text-align: center;
+  }
+
+  .bulletDescription {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    min-height: 50vh;
+  }
+}

@@ -21,7 +21,11 @@ export default function LandingPage() {
       </section>
 
       <section className={landingPageStyles.container}>
-        <img src={InterviewScreen} alt="Interview screen" />
+        <img
+          src={InterviewScreen}
+          alt="Interview screen"
+          className={landingPageStyles.demoImage}
+        />
       </section>
 
       <section
