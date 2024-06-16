@@ -15,9 +15,10 @@
 
   /* fonts */
   --font-h1: 700 70px "Roboto";
-  --font-bold-big: 700 30px "Roboto";
+  --font-bold-big: 700 32px "Roboto";
   --font-bold-small: 500 24px "Roboto";
   --font-bold-tiny: 500 16px "Roboto";
+  --font-medium-small: 400 24px "Roboto";
   --font-p: 300 25px "Roboto";
   --font-thin-small: 300 20px "Roboto";
 
