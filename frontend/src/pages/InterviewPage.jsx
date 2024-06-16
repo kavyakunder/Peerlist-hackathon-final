@@ -19,7 +19,6 @@ export default function InterviewPage() {
     user: false,
     interviewer: false,
   });
-  // TODO: REMOVE
   const isRun = useRef(false);
 
   const {
@@ -91,19 +90,15 @@ export default function InterviewPage() {
     SpeechRecognition.stopListening();
 
     try {
-      const response = await axios.post(
-        `${LOCAL_URL}/api/chat`, //TODO: extract URL
-        {
-          transcript,
-        }
-      );
+      const response = await axios.post(`${LOCAL_URL}/api/chat`, {
+        transcript,
+      });
       setAiResponse(response.data.content);
       speak(response.data.content);
       resetTranscript();
     } catch (error) {}
   };
 
-  // TODO: convert to const and try to move up
   function speak(aiResponse) {
     setGlowingEffect((prev) => {
       return { ...prev, interviewer: true };
