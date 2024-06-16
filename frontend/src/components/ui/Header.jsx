@@ -8,7 +8,7 @@ export default function Header() {
       <Link to="/" className={headerStyles.appHeader}>
         <Logo />
         <h1 className={headerStyles.appName}>
-          Q<span style={{ color: "var(--color-teal)" }}>n</span>Ace
+          Q<span className={headerStyles.highlight}>n</span>Ace
         </h1>
       </Link>
     </header>
