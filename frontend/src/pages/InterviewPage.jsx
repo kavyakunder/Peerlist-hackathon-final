@@ -29,11 +29,11 @@ export default function InterviewPage() {
   } = useSpeechRecognition();
 
   // starting loading before interview starts
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 3000);
+  // }, []);
 
   // send empty script on initial load so that groq ai starts responding
   useEffect(() => {
@@ -119,7 +119,8 @@ export default function InterviewPage() {
     <>
       {loading ? (
         <p className={interviewStyles.loading}>
-          Interview Starting in 3..2..1..
+          QnAce is generating interview questions{"  "}
+          <div className={interviewStyles.loader}></div>
         </p>
       ) : (
         <div className={interviewStyles.interviewLayout}>
