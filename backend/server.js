@@ -60,24 +60,24 @@ router.get("/feedback", async (req, res) => {
     technicalFeedback: [
       {
         id: 1,
-        response: `For the first question, you should have answered "Redux" instead of "used react use State".`,
-        rating: 3,
+        response: "[response_1]",
+        rating: "[rating_1]",
       },
       {
         id: 2,
-        response: `For the second question, you got it right! You correctly answered that a smaller reusable UI component is called a "component".`,
-        rating: 5,
+        response: "[response_2]",
+        rating: "[rating_2]",
       },
       {
         id: 3,
-        response: `For the third question, you listed multiple libraries, but didn't quite get the one I was looking for. You should have answered "Tailwind CSS" instead of listing multiple libraries.`,
-        rating: 2,
+        response: "[response_3]",
+        rating: "[rating_3]",
       },
     ],
-    generalFeedback: `You didn't quite get the answers right, but you did show some enthusiasm and engagement throughout the conversation. Keep practicing and learning, and you'll get better with time!`,
+    generalFeedback: "[general_feedback]",
   };
 
-  const prompt = ` Generate feedback in this JSON format, with no added explanation text strictly based on this format ${interviewFeedback}. Provide detailed feedback in "technicalFeedback" based on the response given by the user for the questions. In the "generalFeedback" give constructive feedback for user based on the interview, include specific areas of strength, areas for improvement, and suggestions for further learning . Give a rating on the scale of 1 to 5 based on user's response.`;
+  const prompt = `Generate feedback in the following JSON format. ${interviewFeedback}`;
 
   try {
     const feedbackMessage = [
