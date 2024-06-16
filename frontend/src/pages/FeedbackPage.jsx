@@ -1,11 +1,26 @@
-import { Doughnut } from "react-chartjs-2";
 import StarRating from "../components/ui/StarRating";
 import feedbackPageStyles from "../styles/feedbackPage.module.css";
-import { data, options } from "../components/PieChart";
 import { Link } from "react-router-dom";
 import landingPageStyles from "../styles/landingPage.module.css";
 
 const interviewFeedback = {
+  analysis: [
+    {
+      id: 1,
+      paramName: "Knowledge",
+      percent: "20",
+    },
+    {
+      id: 2,
+      paramName: "Confidence",
+      percent: "40",
+    },
+    {
+      id: 3,
+      paramName: "Precision",
+      percent: "80",
+    },
+  ],
   technicalFeedback: [
     {
       id: 1,
@@ -42,10 +57,27 @@ export default function FeedbackPage() {
         ))}
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
-        <h1>Analysis</h1>
-        <div>
-          <Doughnut data={data} width={500} height={500} options={options} />
-        </div>
+        <h1>Analysiss</h1>
+
+        {interviewFeedback.analysis.map((item) => {
+          return (
+            <>
+              <div
+                className={feedbackPageStyles.progressBarContainer}
+                style={{ display: "flex", justifyContent: "space-between" }}
+              >
+                <span style={{ paddingRight: "10px" }}>{item.paramName}</span>
+
+                <div className={feedbackPageStyles.progress}>
+                  <div
+                    style={{ width: `${item.percent}%` }}
+                    className={feedbackPageStyles.progressValue}
+                  ></div>
+                </div>
+              </div>
+            </>
+          );
+        })}
       </div>
       <div className={feedbackPageStyles.feedbackSection}>
         <h1>General Feedback</h1>
