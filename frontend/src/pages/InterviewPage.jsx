@@ -156,26 +156,25 @@ export default function InterviewPage() {
                 <button
                   onClick={handleStartListeningUser}
                   className={`${interviewStyles.intervieweeControlButton}  ${
-                    isInterviewerSpeaking
+                    isInterviewerSpeaking || listening
                       ? interviewStyles.intervieweeControlButtonInactive
                       : ""
                   }`}
-                  // disabled={isInterviewerSpeaking}
+                  disabled={isInterviewerSpeaking}
                 >
-                  Start recording
+                  Start answering
                 </button>
                 <button
                   onClick={handleStopListeningUser}
                   className={`${interviewStyles.intervieweeControlButton} ${
-                    isInterviewerSpeaking
+                    isInterviewerSpeaking || !listening
                       ? interviewStyles.intervieweeControlButtonInactive
                       : ""
                   }`}
-                  // disabled={isInterviewerSpeaking}
+                  disabled={isInterviewerSpeaking || !listening}
                 >
-                  Stop recording
+                  Stop answering
                 </button>
-                <p>Microphone: {listening ? "on" : "off"}</p>
               </div>
             </div>
           </div>

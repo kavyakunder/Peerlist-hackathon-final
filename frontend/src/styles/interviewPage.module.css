@@ -83,7 +83,7 @@
   background-color: var(--color-dark-gray);
   color: var(--color-dark-blue);
   font: var(--font-bold-tiny);
-  cursor: pointer;
+  cursor: not-allowed;
 }
 
 .intervieweeControlButtonInactive:hover {
