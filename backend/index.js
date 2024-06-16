@@ -4,11 +4,7 @@ const chatRoute = require("./server.js");
 const cors = require("cors");
 
 const corsOptions = {
-  origin: [
-    "https://peerlist-hackathon-final-frontend.vercel.app",
-    "https://qnace.vercel.app",
-    "http://localhost:3000",
-  ],
+  origin: ["https://q-n-ace.vercel.app", "http://localhost:3000"],
   credentials: true, //access-control-allow-credentials:true
   optionSuccessStatus: 200,
 };
