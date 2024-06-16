@@ -21,11 +21,6 @@
   --font-p: 300 25px "Roboto";
   --font-thin-small: 300 20px "Roboto";
 
-  /* TODO: fix this */
-  --font-size-big: 3rem;
-  --font-size-medium: 2rem;
-  --font-size-small: 1rem;
-
   /* padding */
   --padding-small: 10px;
   --padding-medium: 20px;
