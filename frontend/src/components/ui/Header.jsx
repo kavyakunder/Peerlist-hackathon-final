@@ -7,7 +7,9 @@ export default function Header() {
     <header className={headerStyles.appHeaderBar}>
       <Link to="/" className={headerStyles.appHeader}>
         <Logo />
-        <h1 className={headerStyles.appName}>Q&Ace</h1>
+        <h1 className={headerStyles.appName}>
+          Q<span style={{ color: "var(--color-teal)" }}>n</span>Ace
+        </h1>
       </Link>
     </header>
   );
