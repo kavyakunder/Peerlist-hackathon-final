@@ -31,6 +31,7 @@
   --padding-medium: 20px;
   --padding-large: 30px;
   --padding-x-large: 50px;
+  --padding-xx-large: 100px;
 
   /* gap */
   --gap-x-small: 5px;
@@ -38,4 +39,5 @@
   --gap-medium: 20px;
   --gap-large: 30px;
   --gap-x-large: 50px;
+  --gap-xx-large: 100px;
 }
