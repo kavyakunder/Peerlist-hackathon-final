@@ -101,4 +101,20 @@
   .container {
     min-height: 50vh;
   }
+
+  .heroText {
+    font: var(--font-h2);
+  }
+
+  .description {
+    font: var(--font-thin-small);
+  }
+
+  .startButton {
+    font: var(--font-bold-medium);
+  }
+
+  .bulletDescription {
+    font: var(--font-thin-tiny);
+  }
 }

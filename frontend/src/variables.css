@@ -15,12 +15,16 @@
 
   /* fonts */
   --font-h1: 700 70px "Roboto";
+  --font-h2: 700 50px "Roboto";
   --font-bold-big: 700 32px "Roboto";
   --font-bold-small: 500 24px "Roboto";
+  --font-bold-medium: 500 20px "Roboto";
   --font-bold-tiny: 500 16px "Roboto";
   --font-medium-small: 400 24px "Roboto";
   --font-p: 300 25px "Roboto";
   --font-thin-small: 300 20px "Roboto";
+  --font-thin-tiny: 300 16px "Roboto";
+
 
   /* TODO: fix this */
   --font-size-big: 3rem;
