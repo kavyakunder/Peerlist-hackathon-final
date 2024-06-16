@@ -3,7 +3,7 @@ import feedbackPageStyles from "../styles/feedbackPage.module.css";
 import { Link } from "react-router-dom";
 import landingPageStyles from "../styles/landingPage.module.css";
 import { useEffect, useState } from "react";
-import { LOCAL_URL } from "../api";
+import { DEV_URL } from "../api";
 import axios from "axios";
 
 const INTERVIEW_FEEDBACK = {
@@ -39,7 +39,7 @@ export default function FeedbackPage() {
 
   const handleGetFeedback = async () => {
     try {
-      const response = await axios.get(`${LOCAL_URL}/api/feedback`);
+      const response = await axios.get(`${DEV_URL}/api/feedback`);
 
       if (response?.data?.message) {
         const parseData = JSON.parse(response?.data?.message);

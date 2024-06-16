@@ -3,8 +3,7 @@ import categoryPageStyles from "../styles/categoryPage.module.css";
 import axios from "axios";
 import { ALL_LEVELS, ALL_TOPICS } from "../constants/categories";
 import { Link } from "react-router-dom";
-import { LOCAL_URL } from "../api";
-
+import { DEV_URL } from "../api";
 function CategoryPage() {
   const [topic, setTopic] = useState(ALL_TOPICS[0]);
   const [difficulty, setDifficulty] = useState(ALL_LEVELS[0]);
@@ -24,7 +23,7 @@ function CategoryPage() {
     };
 
     try {
-      const response = await axios.post(`${LOCAL_URL}/api/category`, {
+      const response = await axios.post(`${DEV_URL}/api/category`, {
         data,
       });
     } catch (error) {}
