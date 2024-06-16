@@ -74,7 +74,7 @@
 }
 
 .mainContainer {
-  padding: 9rem;
+  padding: 10px;
   background-color: var(--color-dark-blue);
   height: 100vh;
 }
