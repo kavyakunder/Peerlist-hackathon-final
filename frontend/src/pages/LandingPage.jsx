@@ -1,5 +1,5 @@
 import landingPageStyles from "../styles/landingPage.module.css";
-import InterviewScreen from "../assets/interview sample image.jpg";
+import InterviewScreen from "../assets/mainPageImage.png";
 import { Link } from "react-router-dom";
 
 export default function LandingPage() {

@@ -7,7 +7,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { useNavigate } from "react-router-dom";
-import { LOCAL_URL } from "../api";
+import { DEV_URL } from "../api";
 
 export default function InterviewPage() {
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ export default function InterviewPage() {
   useEffect(() => {
     const firstRequestToGroq = async () => {
       try {
-        const response = await axios.post(`${LOCAL_URL}/api/chat`, {
+        const response = await axios.post(`${DEV_URL}/api/chat`, {
           transcript: "",
         });
         setAiResponse(response.data.content);
@@ -90,7 +90,7 @@ export default function InterviewPage() {
     SpeechRecognition.stopListening();
 
     try {
-      const response = await axios.post(`${LOCAL_URL}/api/chat`, {
+      const response = await axios.post(`${DEV_URL}/api/chat`, {
         transcript,
       });
       setAiResponse(response.data.content);
