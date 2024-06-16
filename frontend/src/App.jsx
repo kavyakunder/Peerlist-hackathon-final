@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import RootLayout from "./pages/RootLayout";
 import InterviewPage from "./pages/InterviewPage";
 import CategoryPage from "./pages/CategoryPage";
+import FeedbackPage from "./pages/FeedbackPage";
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
       { path: "/", element: <LandingPage /> },
       { path: "/category", element: <CategoryPage /> },
       { path: "/interview", element: <InterviewPage /> },
+      { path: "/feedback", element: <FeedbackPage /> },
     ],
   },
 ]);
