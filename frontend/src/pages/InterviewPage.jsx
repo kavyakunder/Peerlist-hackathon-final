@@ -7,11 +7,13 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { useNavigate } from "react-router-dom";
-import { DEV_URL } from "../api";
+import { LOCAL_URL } from "../api";
 
 export default function InterviewPage() {
   const navigate = useNavigate();
   const [aiResponse, setAiResponse] = useState("");
+  console.log("🚀 ~ InterviewPage ~ aiResponse:", aiResponse);
+
   const [isInterviewerSpeaking, setIsInterviewerSpeaking] = useState(false);
   const [loading, setLoading] = useState(true);
   const [glowingEffect, setGlowingEffect] = useState({
@@ -39,7 +41,7 @@ export default function InterviewPage() {
   useEffect(() => {
     const firstRequestToGroq = async () => {
       try {
-        const response = await axios.post(`${DEV_URL}/api/chat`, {
+        const response = await axios.post(`${LOCAL_URL}/api/chat`, {
           transcript: "",
         });
         setAiResponse(response.data.content);
@@ -56,8 +58,22 @@ export default function InterviewPage() {
 
     setTimeout(() => {
       firstRequestToGroq();
-    }, 1000);
+    }, 2000);
   }, []);
+
+  useEffect(() => {
+    const interviewComplete = "Thank you for interviewing with QnAce";
+
+    console.log(aiResponse?.includes(interviewComplete));
+    console.log(isInterviewerSpeaking, "isInterviewerSpeaking");
+
+    if (
+      aiResponse?.includes(interviewComplete) &&
+      isInterviewerSpeaking === false
+    ) {
+      navigate("/feedback");
+    }
+  }, [aiResponse, isInterviewerSpeaking]);
 
   // TODO: check case
   if (!browserSupportsSpeechRecognition) {
@@ -83,7 +99,7 @@ export default function InterviewPage() {
 
     try {
       const response = await axios.post(
-        `${DEV_URL}/api/chat`, //TODO: extract URL
+        `${LOCAL_URL}/api/chat`, //TODO: extract URL
         {
           transcript,
         }

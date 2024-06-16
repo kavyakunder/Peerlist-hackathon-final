@@ -4,6 +4,9 @@ import feedbackPageStyles from "../styles/feedbackPage.module.css";
 import { data, options } from "../components/PieChart";
 import { Link } from "react-router-dom";
 import landingPageStyles from "../styles/landingPage.module.css";
+import { useEffect, useState } from "react";
+import { LOCAL_URL } from "../api";
+import axios from "axios";
 
 const interviewFeedback = {
   technicalFeedback: [
@@ -27,6 +30,24 @@ const interviewFeedback = {
 };
 
 export default function FeedbackPage() {
+  const [feedback, setFeedback] = useState();
+  console.log("🚀 ~ FeedbackPage ~ feedback:", feedback);
+
+  useEffect(() => {
+    handleGetFeedback();
+  }, []);
+
+  const handleGetFeedback = async () => {
+    try {
+      const response = await axios.get(`${LOCAL_URL}/api/feedback`);
+      console.log("🚀 ~ handleGetFeedback ~ response:", response.data.message);
+      setFeedback(response.data.message);
+
+      // resetTranscript();
+    } catch (error) {
+      console.error("Error during conversation:", error);
+    }
+  };
   return (
     <div className={feedbackPageStyles.feedbackPageLayout}>
       <div className={feedbackPageStyles.feedbackSection}>
