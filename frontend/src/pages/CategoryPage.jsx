@@ -27,10 +27,7 @@ function CategoryPage() {
       const response = await axios.post(`${LOCAL_URL}/api/category`, {
         data,
       });
-      console.log("response is", response);
-    } catch (error) {
-      console.error("Error during conversation:", error);
-    }
+    } catch (error) {}
   };
 
   return (

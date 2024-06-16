@@ -44,9 +44,7 @@ export default function InterviewBody() {
       setAiResponse(response.data.content);
       speak(response.data.content);
       resetTranscript();
-    } catch (error) {
-      console.error("Error during conversation:", error);
-    }
+    } catch (error) {}
   };
 
   return (

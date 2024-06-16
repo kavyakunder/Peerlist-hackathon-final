@@ -49,9 +49,7 @@ export default function FeedbackPage() {
       }
 
       // resetTranscript();
-    } catch (error) {
-      console.error("Error during conversation:", error);
-    }
+    } catch (error) {}
   };
   return (
     <div className={feedbackPageStyles.feedbackPageLayout}>

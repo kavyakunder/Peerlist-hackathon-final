@@ -12,7 +12,6 @@ import { LOCAL_URL } from "../api";
 export default function InterviewPage() {
   const navigate = useNavigate();
   const [aiResponse, setAiResponse] = useState("");
-  console.log("🚀 ~ InterviewPage ~ aiResponse:", aiResponse);
 
   const [isInterviewerSpeaking, setIsInterviewerSpeaking] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -47,9 +46,7 @@ export default function InterviewPage() {
         setAiResponse(response.data.content);
         speak(response.data.content);
         // resetTranscript();
-      } catch (error) {
-        console.error("Error during conversation:", error);
-      }
+      } catch (error) {}
     };
 
     if (isRun.current === true) return;
@@ -64,9 +61,6 @@ export default function InterviewPage() {
   useEffect(() => {
     const interviewComplete = "Thank you for interviewing with QnAce";
 
-    console.log(aiResponse?.includes(interviewComplete));
-    console.log(isInterviewerSpeaking, "isInterviewerSpeaking");
-
     if (
       aiResponse?.includes(interviewComplete) &&
       isInterviewerSpeaking === false
@@ -75,7 +69,6 @@ export default function InterviewPage() {
     }
   }, [aiResponse, isInterviewerSpeaking]);
 
-  // TODO: check case
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition</span>;
   }
@@ -107,9 +100,7 @@ export default function InterviewPage() {
       setAiResponse(response.data.content);
       speak(response.data.content);
       resetTranscript();
-    } catch (error) {
-      console.error("Error during conversation:", error);
-    }
+    } catch (error) {}
   };
 
   // TODO: convert to const and try to move up
