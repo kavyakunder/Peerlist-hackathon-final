@@ -3,7 +3,7 @@ import feedbackPageStyles from "../styles/feedbackPage.module.css";
 import { Link } from "react-router-dom";
 import landingPageStyles from "../styles/landingPage.module.css";
 import { useEffect, useState } from "react";
-import { DEV_URL, LOCAL_URL } from "../api";
+import { DEV_URL } from "../api";
 import axios from "axios";
 import { checkPattern, interviewFeedbackExpectedFormat } from "../util";
 import Loader from "./Loader";
@@ -20,7 +20,7 @@ export default function FeedbackPage() {
 
   const handleGetFeedback = async () => {
     try {
-      const response = await axios.get(`${LOCAL_URL}/api/feedback`);
+      const response = await axios.get(`${DEV_URL}/api/feedback`);
       if (response?.data?.message) {
         const parsedFeedback = JSON.parse(response?.data?.message);
         const validFeedback = checkPattern(
@@ -32,7 +32,7 @@ export default function FeedbackPage() {
 
         if (!validFeedback) {
           try {
-            const response = await axios.get(`${LOCAL_URL}/api/feedback-error`);
+            const response = await axios.get(`${DEV_URL}/api/feedback-error`);
             if (response?.data?.message) {
               const fallbackResponse = response?.data?.message;
               setIsLoading(false);
