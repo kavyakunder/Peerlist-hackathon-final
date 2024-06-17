@@ -119,7 +119,6 @@ router.get("/feedback-error", async (req, res) => {
   )} to give detailed constructive feedback in first person. Ensure the result you will provide contains only the feedback without any surrounding text or additional strings. Don't write 
   "here is the response" or anything additional`;
 
-  console.log("falbackoprmit", fallbackPrompt);
   try {
     const fallbackMessage = [
       {
@@ -144,7 +143,6 @@ router.get("/feedback-error", async (req, res) => {
       response += delta;
     }
 
-    console.log("check response", response);
     res.status(200).json({ message: response });
   } catch (err) {}
 });
