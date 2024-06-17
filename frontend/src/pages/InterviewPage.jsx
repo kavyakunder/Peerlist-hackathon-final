@@ -8,6 +8,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import { useNavigate } from "react-router-dom";
 import { DEV_URL } from "../api";
+import Loader from "../components/ui/Loader";
 
 export default function InterviewPage() {
   const navigate = useNavigate();
@@ -120,10 +121,7 @@ export default function InterviewPage() {
   return (
     <>
       {loading ? (
-        <p className={interviewStyles.loading}>
-          QnAce is generating interview questions{"  "}
-          <div className={interviewStyles.loader}></div>
-        </p>
+        <Loader text="QnAce is generating interview questions" />
       ) : (
         <div className={interviewStyles.interviewLayout}>
           <div className={interviewStyles.interviewLHS}>
