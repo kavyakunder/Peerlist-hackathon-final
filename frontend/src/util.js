@@ -24,29 +24,28 @@ export function checkPattern(response, pattern) {
   return true;
 }
 
-
 export const interviewFeedbackExpectedFormat = {
-    technicalFeedback: [
-      {
-        id: 1,
-        feedback: "[feedback_1]",
-        rating: "[rating_1]",
-      },
-      {
-        id: 2,
-        feedback: "[feedback_2]",
-        rating: "[rating_2]",
-      },
-      {
-        id: 3,
-        feedback: "[feedback_3]",
-        rating: "[rating_2]",
-      },
-    ],
-    analysis: [
-      { id: 1, paramName: "Knowledge", percent: "70" },
-      { id: 1, paramName: "Precision", percent: "20" },
-      { id: 1, paramName: "Confidence", percent: "40" },
-    ],
-    generalFeedback: "[general_feedback]",
-  };
+  technicalFeedback: [
+    {
+      id: 1,
+      feedback: "[feedback_1]",
+      rating: "[rating_1]",
+    },
+    {
+      id: 2,
+      feedback: "[feedback_2]",
+      rating: "[rating_2]",
+    },
+    {
+      id: 3,
+      feedback: "[feedback_3]",
+      rating: "[rating_2]",
+    },
+  ],
+  analysis: [
+    { id: 1, paramName: "Knowledge", percent: "70" },
+    { id: 2, paramName: "Precision", percent: "20" },
+    { id: 3, paramName: "Confidence", percent: "40" },
+  ],
+  generalFeedback: "[general_feedback]",
+};

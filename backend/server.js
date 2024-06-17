@@ -73,8 +73,8 @@ router.get("/feedback", async (req, res) => {
     ],
     analysis: [
       { id: 1, paramName: "Knowledge", percent: "70" },
-      { id: 1, paramName: "Precision", percent: "20" },
-      { id: 1, paramName: "Confidence", percent: "40" },
+      { id: 2, paramName: "Precision", percent: "20" },
+      { id: 3, paramName: "Confidence", percent: "40" },
     ],
     generalFeedback: "[general_feedback]",
   };
