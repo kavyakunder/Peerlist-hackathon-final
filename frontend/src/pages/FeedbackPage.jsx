@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { DEV_URL } from "../api";
 import axios from "axios";
 import { checkPattern, interviewFeedbackExpectedFormat } from "../util";
-import Loader from "./Loader";
+import Loader from "../components/ui/Loader";
 
 export default function FeedbackPage() {
   const [interviewFeedback, setInterviewFeedback] = useState({});

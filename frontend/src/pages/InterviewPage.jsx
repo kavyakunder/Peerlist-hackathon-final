@@ -8,7 +8,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import { useNavigate } from "react-router-dom";
 import { DEV_URL } from "../api";
-import Loader from "./Loader";
+import Loader from "../components/ui/Loader";
 
 export default function InterviewPage() {
   const navigate = useNavigate();
